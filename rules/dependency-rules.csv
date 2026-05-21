@@ -1,0 +1,5 @@
+id,pattern,language,severity,title,description,remediation,auto_fixable,destructive_fixable
+S035,NPM_AUDIT,js|ts,HIGH,npm audit vulnerabilities found,Dependencies with known CVEs detected,Run npm audit fix; review breaking changes manually,false,false
+S035b,NO_LOCKFILE,js|ts,MEDIUM,No package lockfile,No package-lock.json or yarn.lock — dependency versions not pinned,Run npm install to generate lockfile and commit it,false,false
+S035c,"\"[^\"]+\":\s*\"\\*\"",json,HIGH,Wildcard dependency version,package.json uses * for dependency version — any version installs,Pin to specific version or use ^ with known-good version,false,true
+S035d,"\"[^\"]+\":\s*\"latest\"",json,MEDIUM,latest dependency version,package.json uses 'latest' — breaks reproducibility,Pin to specific version,false,true

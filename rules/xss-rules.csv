@@ -1,0 +1,8 @@
+id,pattern,language,severity,title,description,remediation,auto_fixable,destructive_fixable
+S012,"dangerouslySetInnerHTML\s*=\s*\{\s*\{",js|ts|jsx|tsx,HIGH,dangerouslySetInnerHTML without sanitization,Raw HTML injected into DOM — XSS if content is user-controlled,Wrap value with DOMPurify.sanitize() or use a safe renderer,false,true
+S013,"\.innerHTML\s*=\s*(?!.*DOMPurify)",js|ts,HIGH,innerHTML assignment,Direct innerHTML assignment enables XSS if value includes user input,Use textContent for text; DOMPurify.sanitize() for HTML,false,true
+S014,"\beval\s*\(",js|ts,CRITICAL,eval() usage,eval() executes arbitrary code — critical XSS and RCE vector,Replace with JSON.parse() for data; Function() for dynamic code,false,true
+S014b,"\bnew\s+Function\s*\([^)]*(?:req\.|request\.|params\.|query\.|body\.)",js|ts,CRITICAL,new Function() with user input,Dynamic function construction from user input — RCE vector,Never pass user input to new Function(),false,true
+S015,"document\.write\s*\(",js|ts,HIGH,document.write() usage,document.write blocks parsing and enables XSS,Replace with safe DOM manipulation methods,false,true
+S013b,"\.outerHTML\s*=",js|ts,HIGH,outerHTML assignment,Direct outerHTML assignment enables XSS,Use safe DOM methods or DOMPurify.sanitize(),false,true
+S036,"console\.(?:log|info|warn|error)\s*\([^)]*(?:password|token|secret|user|session|cookie|auth)",js|ts|py,MEDIUM,Sensitive data in console log,Credentials or session data logged — leaks in log aggregators,Remove log or redact sensitive fields,false,true

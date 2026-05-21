@@ -1,0 +1,8 @@
+id,pattern,language,severity,title,description,remediation,auto_fixable,destructive_fixable
+S001,GITIGNORE_MISSING_ENV,*,CRITICAL,.env not in .gitignore,.env files not excluded from version control,Add .env* pattern to .gitignore,true,false
+S002,GIT_TRACKED_ENV,*,CRITICAL,.env committed to git,.env file is tracked by git and may expose secrets,Run git rm --cached .env and add to .gitignore,false,true
+S020,"http://(?!localhost|127\.0\.0\.1|0\.0\.0\.0)",*,MEDIUM,Insecure HTTP URL,Non-localhost HTTP URL in config or constants,Replace with https://,true,false
+S034,CSP_MISSING,*,MEDIUM,Content-Security-Policy header missing,No CSP header configured in next.config.js or middleware,Add Content-Security-Policy header stub,true,false
+S038,ENV_EXAMPLE_MISSING,*,LOW,.env.example missing,No .env.example file to document required env vars,Create .env.example with all required var names (no values),true,false
+S019a,"(?:set-cookie|cookie)\s*\([^)]*\)(?![^{]*httpOnly\s*:\s*true)",*,HIGH,Cookie missing httpOnly flag,Cookie set without httpOnly:true enables XSS token theft,Add httpOnly: true to cookie options,true,false
+S019b,"(?:set-cookie|cookie)\s*\([^)]*\)(?![^{]*secure\s*:\s*true)",*,MEDIUM,Cookie missing secure flag,Cookie set without secure:true sent over HTTP,Add secure: true to cookie options,true,false
