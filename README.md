@@ -1,4 +1,4 @@
-# Secmaxxing
+![alt text](https://github.com/benirios/Secmaxxing/blob/main/smaxxing.png "Logo Title Text 1")
 
 > "Ran it on a project I'd been shipping for months. Found a tracked `.env` with live keys and a `getSession()` auth hole on every server route. Fixed in one command."
 
