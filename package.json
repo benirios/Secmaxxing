@@ -1,0 +1,28 @@
+{
+  "name": "secmaxxing",
+  "version": "1.0.0",
+  "description": "Security audit and hardening skill for Claude Code — scan, fix, and harden codebases",
+  "bin": {
+    "secmaxxing": "install.js"
+  },
+  "type": "module",
+  "keywords": [
+    "security",
+    "claude",
+    "claude-code",
+    "audit",
+    "xss",
+    "sql-injection",
+    "hardening",
+    "skill"
+  ],
+  "author": "benirios",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benirios/Secmaxxing.git"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
